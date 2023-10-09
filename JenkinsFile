@@ -35,9 +35,7 @@ pipeline {
                     git config user.email "moreakash947@gmail.com"
                     git config user.name "Akash more"
                     BUILD_NUMBER=${BUILD_NUMBER}
-                    def deploymentYml = readFile 'deploy/deployment.yml'
-                    deploymentYml = deploymentYml.replace 'image: akashmore947/sample-java-project-image:latest', "image: akashmore947/sample-java-project-image:${BUILD_NUMBER}"  
-                    writeFile file: 'deploy/deployment.yml', text: deploymentYaml
+                    sed -i "s/${BUILD_NUMBER}/${BUILD_NUMBER}/g" deploy/deployment.yml
                     git add deploy/deployment.yml
                     git commit -m "Update deployment image to version ${BUILD_NUMBER}"
                     git push https://${GITHUB_TOKEN}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME} HEAD:main
