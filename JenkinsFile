@@ -27,7 +27,7 @@ pipeline {
     stage('Update Deployment File') {
         environment {
             GIT_REPO_NAME = "java-minikube"
-            GIT_USER_NAME = "akashmore"
+            GIT_USER_NAME = "0akash0"
         }
         steps {
             withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]) {
