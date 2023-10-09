@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: java-app-container
-        image: akashmore947/sample-java-project-image:replaceImageTag
+        image: akashmore947/sample-java-project-image:15
         ports:
         - containerPort: 8001
 
