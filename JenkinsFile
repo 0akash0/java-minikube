@@ -35,7 +35,7 @@ pipeline {
                     git config user.email "moreakash947@gmail.com"
                     git config user.name "Akash more"
                     BUILD_NUMBER=${BUILD_NUMBER}
-                    sed -i "s/replaceImageTag/${BUILD_NUMBER}/g" deploy/deployment.yml
+                    yq eval '.spec.template.spec.containers[0].image = \"akashmore947/my-app-image:\${BUILD_NUMBER}\"' -i deploy/deployment.yml
                     git add deploy/deployment.yml
                     git commit -m "Update deployment image to version ${BUILD_NUMBER}"
                     git push https://${GITHUB_TOKEN}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME} HEAD:main
