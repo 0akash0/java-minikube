@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: java-app-container
-        image: abhishekf5/ultimate-cicd:13
+        image: akashmore947/sample-java-project-image:replaceImageTag
         ports:
         - containerPort: 8001
 
