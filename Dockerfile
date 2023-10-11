@@ -5,7 +5,7 @@ FROM openjdk:11-jre-slim
 WORKDIR /app
 
 # Copy the Java application JAR file into the container
-COPY HelloWorld.class /app
+COPY HelloWorld*.jar app.jar
 
 # Bundle your source code into the Docker image
 COPY . .
@@ -14,5 +14,5 @@ COPY . .
 EXPOSE 8001
 
 # Command to run the Java application
-CMD ["java", "HelloWorld"]
+CMD ["java", "-jar", "app.jar"]
 
